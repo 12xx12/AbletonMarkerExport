@@ -8,3 +8,7 @@ Usage:
 python AlbetonMarkerExport [name of you project file.als]
 
 there is a windows script included which exports for any .als file in that folder
+
+# Warning:
+
+At this point the script only supports 4/4 meassures at a fixed bpm
