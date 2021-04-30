@@ -21,14 +21,16 @@ def bartominute(s: str, tempo: int) -> str:
     hours = minutes // 60
     minutes -= hours * 60
 
-    return str(hours) + ":" + str(minutes).zfill(2) + ":" + str(seconds).zfill(2) + ":" + str(frames).zfill(2)
+    return str(hours) + ":" + str(minutes).zfill(2) + ":" +\
+                        str(seconds).zfill(2) + ":" + str(frames).zfill(2)
 
 
 def takesecond(elem):
     return float(elem[1])
 
 
-with gzip.open(sys.argv[1], "rt") as file, open(sys.argv[1][:-4] + ".xml", "w") as outfile:
+with gzip.open(sys.argv[1], "rt") as file, open(sys.argv[1][:-4] + ".xml",
+                                                "w") as outfile:
     projectFile = file.read()
     outfile.write(projectFile)
 
@@ -51,7 +53,8 @@ for child in locator.getchildren():
             helperArray[1] = e.attrib["Value"].replace(" ", "")
     array.append(helperArray)
 
-tempo = float(root.LiveSet.MasterTrack.DeviceChain.Mixer.Tempo.Manual.attrib["Value"])
+tempo = float(
+    root.LiveSet.MasterTrack.DeviceChain.Mixer.Tempo.Manual.attrib["Value"])
 
 array.sort(key=takesecond)
 
